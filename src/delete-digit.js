@@ -16,7 +16,15 @@ function deleteDigit(n) {
 	let max = -Infinity
 
 	for (let i = 0; i < numArr.length; i++) {
-		max = Math.max(Number(numArr.toSpliced(i, 1).join('')), max)
+		max = Math.max(
+			Number(
+				numArr
+					.slice(0, i)
+					.concat(numArr.slice(i + 1))
+					.join('')
+			),
+			max
+		)
 	}
 
 	return max
